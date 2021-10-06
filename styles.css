@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    height: 104vh;
+    width:98%;
+    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+h3, h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+input[type=text] {
+    padding: 5px;
+    font-size: 16px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    outline: none;
+}
+
+textarea {
+    padding: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    outline: none;
+}
+
+#saveBtn, #yesBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #db7583;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    outline: none;
+}
+
+#saveBtn:hover, #yesBtn:hover {
+    background: #a73737;
+    background: -webkit-linear-gradient(to center, #7a2828, #a73737);
+    background: linear-gradient(to center, #7a2828, #a73737);
+    transition: all ease-in 0.2s;
+}
+
+.container {
+    height: 100vh;
+    margin: 10px;
+}
+
+.top {
+    height: 60px;
+    margin: 15px 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* .top-left, .top-right {
+    width: 100%;
+} */
+
+.top-right {
+    background-color: lightskyblue;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.count-tasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.create-new {
+    padding: 5px 15px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(to right, #ffdde1, #ec8391);
+    background: linear-gradient(to left top, #ffdde1, #ec8391);
+    color: rgb(73, 73, 73);
+    cursor: pointer;
+    outline: none;
+}
+
+.cards {
+    height: 600px;
+    width: 30%;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    letter-spacing: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    background: transparent;
+}
+
+.list-created {
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(to right, #ffdde1, #ec8391);
+    background: linear-gradient(to left top, #ffdde1, #ec8391);
+    scrollbar-color: #ffdde1;
+}
+
+.list-doing {
+    background: #FFEFBA;
+    background: -webkit-linear-gradient(to right, #f5f3de, #f0cb5b);
+    background: linear-gradient(to left top, #f5f3de, #f0cb5b);
+}
+
+.list-done {
+    background: #73c8a9;
+    background: -webkit-linear-gradient(to right, #44dba4, #d8f7dc);
+    background: linear-gradient(to right bottom, #44dba4, #d8f7dc);
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-hidden, .modal-confirm-hidden {
+    display: none;
+}
+
+.modal-content, .modal-confirm-content {
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
+    background: linear-gradient(to left top, #ffdde1, #ee9ca7);
+    padding: 40px 20px 20px 20px;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.modal-top, .modal-confirm-top, .modal-bottom p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.modal-close-btn, .modal-confirm-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -30px;
+}
+
+#close-btn, #close-confirm-btn {
+    cursor: pointer;
+}
+
+.createdTask {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbced4;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px
+}
+
+.doing .createdTask {
+    background-color: #f5e8c2;
+}
+
+.done .createdTask {
+    background-color: #aaebd3;
+}
+
+.done-btn {
+    display: none;
+}
+
+.title-desc-container {
+    margin-right: 20px;
+}
+
+.task-title {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.task-desc {
+    font-size: 14px;
+}
+
+.trash, .done-btn {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.count {
+    background-color: #ace0f9;
+    padding: 2px 9px;
+    border-radius: 15px;
+}
+
+.count-tasks span {
+    margin: 0 15px 0 2px;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 540px) {
+    .cards {
+        width: 480px;
+    }
+    #create-new {
+        margin-right: 10px;
+    }
+    .count-tasks span {
+        padding: 1px 5px;
+        margin: 0;
+    }
+    .all-count, .created-count, .doing-count, .done-count {
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .body {
+        height: 104vh;
+        width: 92%;
+    }
+    .container {
+        margin: 0;
+    }
+    .top {
+        display: inline-flex;
+        margin: 0px;
+    }
+    .top-left, .top-right {
+        font-size: 12px;
+        width: auto;
+        padding: 7px;
+    }
+    h1 {
+        font-size: 20px;
+        padding-bottom: 0;
+        width: 360px;
+    }
+    .created .done-btn, .doing .done-btn {
+        display: inline;
+    }
+    .count-tasks span {
+        padding: 1px 5px;
+        margin: 0 4px 0 0;
+    }
+    .cards {
+        margin: 10px;
+        height: 90%
+    }
+    .all-count, .created-count, .doing-count, .done-count {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 10px;
+    }
+    .swiper {
+        width: 240px;
+        height: 90%;
+    }
+}
